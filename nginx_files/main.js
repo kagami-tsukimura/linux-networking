@@ -34,12 +34,12 @@ async function registerTask() {
     },
     body: JSON.stringify(requestBody),
   });
-  loadTasks();
+  await loadTasks();
 }
 
 async function main() {
   taskAddButtonElement.addEventListener('click', registerTask);
-  loadTasks();
+  await loadTasks();
 }
 
 main();
