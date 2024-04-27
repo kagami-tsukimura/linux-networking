@@ -3,6 +3,8 @@ const taskTitleInputElement = document.getElementById('task-title-input');
 const taskAddButtonElement = document.getElementById('task-add-button');
 
 async function loadTasks() {
+  // NOTE: ロード時に、既存のタスクを削除する（追加時に既存のタスクが重複して更新される対策）
+  tasksTableBodyElement.innerHTML = '';
   const response = await fetch('/api/tasks');
   const responseBody = await response.json();
 
@@ -34,11 +36,12 @@ async function registerTask() {
     },
     body: JSON.stringify(requestBody),
   });
+  await loadTasks();
 }
 
 async function main() {
   taskAddButtonElement.addEventListener('click', registerTask);
-  loadTasks();
+  await loadTasks();
 }
 
 main();
