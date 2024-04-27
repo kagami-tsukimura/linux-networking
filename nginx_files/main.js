@@ -1,12 +1,27 @@
-async function main() {
-  console.log('Hello JavaScript');
-  const response = await fetch('/api/hello');
-  console.log(response);
-  const responseBody = await response.json();
-  console.log(responseBody);
+const tasksTableBodyElement = document.getElementById('tasks-table-body');
 
-  const messageElement = document.getElementById('message');
-  messageElement.innerText = responseBody.message;
+async function loadTasks() {
+  const response = await fetch('/api/tasks');
+  const responseBody = await response.json();
+
+  const tasks = responseBody.tasks;
+  tasks.forEach((task) => {
+    const titleTdElement = document.createElement('td');
+    titleTdElement.innerText = task.title;
+
+    const createdAtTdElement = document.createElement('td');
+    createdAtTdElement.innerText = task.createdAt;
+
+    const trElement = document.createElement('tr');
+    trElement.appendChild(titleTdElement);
+    trElement.appendChild(createdAtTdElement);
+
+    tasksTableBodyElement.appendChild(trElement);
+  });
+}
+
+async function main() {
+  loadTasks();
 }
 
 main();
