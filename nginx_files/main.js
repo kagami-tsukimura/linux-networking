@@ -34,6 +34,7 @@ async function registerTask() {
     },
     body: JSON.stringify(requestBody),
   });
+  loadTasks();
 }
 
 async function main() {
