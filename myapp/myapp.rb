@@ -15,7 +15,7 @@ tasks = [
      'Hello World!'
    end
    get '/test' do
-     'Hello Test!'
+     'Hello Test'
    end
    get '/api/hello' do
      {
