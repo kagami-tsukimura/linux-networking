@@ -1,14 +1,7 @@
 require 'sinatra'
- 
+require 'mysql2'
+
 tasks = [
-  {
-    title: "フロントエンドの実装",
-    createdAt: Time.now
-  },
-     {
-    title: "バックエンドの実装",
-    createdAt: Time.now
-  }
   ]
 
    get '/' do
@@ -37,4 +30,15 @@ tasks = [
     tasks.push task
     
     task.to_json
+  end
+
+  def connect
+    Mysql2::Client.new(
+      :host => 'localhost', 
+      :port => 3306, 
+      :username => 'myuser', 
+      :password => 'password', 
+      :database => 'mydb',
+      :connect_timeout => 5
+    )
   end
