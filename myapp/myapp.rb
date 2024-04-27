@@ -15,7 +15,7 @@ tasks = [
      'Hello World!'
    end
    get '/test' do
-     'Hello Test!'
+     'Hello Test'
    end
    get '/api/hello' do
      {
@@ -27,3 +27,14 @@ tasks = [
            tasks: tasks
        }.to_json
    end
+   post '/api/tasks' do
+    request_body = JSON.parse request.body.read
+
+    task = {
+      title: request_body['title'],
+      createdAt: Time.now
+    }
+    tasks.push task
+    
+    task.to_json
+  end
