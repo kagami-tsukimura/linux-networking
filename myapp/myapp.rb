@@ -16,6 +16,19 @@ tasks = [
      }.to_json
    end
    get '/api/tasks' do
+    client = connect
+
+    result_set = client.query('SELECT id, title, created_at FROM tasks')
+    tasks = result_set.map do |row|
+    {
+      id: row['id'],
+      title: row['title'],
+      createdAt: row['created_at']
+    }
+    end
+
+client.close
+
        {
            tasks: tasks
        }.to_json
