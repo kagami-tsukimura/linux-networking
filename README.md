@@ -42,6 +42,6 @@ mysql -u <上記設定ファイルのuser> -p
 
 ```bash
 # mountしたデータが削除されないようにする
-# ホストのカレントディレクトリをコンテナの/opt/myappにマウント
+# -v: ホストのカレントディレクトリをコンテナの/opt/myappにマウント
 docker run -it -v $PWD:/opt/myapp -w /opt/myapp my-ruby:dockerfile bash
 ```
