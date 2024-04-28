@@ -68,3 +68,7 @@ docker exec -it my-db bash
 mysql -u root -p
 rootpassword
 ```
+
+## mysql コンテナの起動時について
+
+起動時に`/docker-entrypoint-initdb`.内の`d.sh`, `.sql` , `.sql.gz`を読み込ませられる。
