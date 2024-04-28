@@ -37,3 +37,9 @@ mysql -u <上記設定ファイルのuser> -p
 
 - MySQL の実体は、mysql の service
   - mysql コマンドでは、実体にアクセスするためのツール
+
+## Docker の起動
+
+```bash
+docker run -it my-ruby:dockerfile bash
+```
