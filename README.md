@@ -58,7 +58,8 @@ docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 my-ruby:dock
 ## mysql コンテナの起動
 
 ```bash
-docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 mysql:8.0.29
+cd introduction-to-docker
+docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 -v $PWD/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d  mysql:8.0.29
 ```
 
 ## mysql コンテナの確認
