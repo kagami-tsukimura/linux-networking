@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'mysql2'
 
 tasks = [
@@ -12,7 +13,7 @@ tasks = [
    end
    get '/api/hello' do
      {
-         message: 'Hello World!'
+         message: 'Hello World!!!!'
      }.to_json
    end
    get '/api/tasks' do
