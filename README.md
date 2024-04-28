@@ -41,5 +41,5 @@ mysql -u <上記設定ファイルのuser> -p
 ## Docker の起動
 
 ```bash
-docker run -it my-ruby:dockerfile bash
+docker run -it -v $PWD:/opt/myapp my-ruby:dockerfile bash
 ```
