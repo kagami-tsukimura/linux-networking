@@ -41,5 +41,6 @@ mysql -u <上記設定ファイルのuser> -p
 ## Docker の起動
 
 ```bash
+# mountしたデータが削除されないようにする
 docker run -it -v $PWD:/opt/myapp my-ruby:dockerfile bash
 ```
