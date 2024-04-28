@@ -44,5 +44,9 @@ mysql -u <上記設定ファイルのuser> -p
 # mountしたデータが削除されないようにする
 # -v: ホストのカレントディレクトリをコンテナの/opt/myappにマウント
 # -w: コンテナのカレントディレクトリを/opt/myappに設定
-docker run -it -v $PWD:/opt/myapp -w /opt/myapp my-ruby:dockerfile bash
+# docker run -it -v $PWD:/opt/myapp -w /opt/myapp my-ruby:dockerfile bash
+# -d: バックグラウンド実行
+# -p: ホストのポート番号をコンテナのポート番号にマウント
+# -o: コンテナのホストのIPアドレスを0.0.0.0に設定 →4567ポートのIPに対してアクセス可能
+docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 my-ruby:dockerfile ruby myapp.rb -o 0.0.0.0
 ```
