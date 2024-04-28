@@ -36,13 +36,11 @@ client.close
    post '/api/tasks' do
     request_body = JSON.parse request.body.read
 
-    task = {
-      title: request_body['title'],
-      createdAt: Time.now
-    }
-    tasks.push task
-    
-    task.to_json
+    client = connect
+
+    statement = client.prepare('INSERT INTO tasks (title) VALUES (?)')
+    statement.execute(request_body['title'])
+    client.close
   end
 
   def connect
