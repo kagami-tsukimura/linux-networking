@@ -60,3 +60,11 @@ docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 my-ruby:dock
 ```bash
 docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 mysql:8.0.29
 ```
+
+## mysql コンテナの確認
+
+```bash
+docker exec -it my-db bash
+mysql -u root -p
+rootpassword
+```
