@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'mysql2'
+require 'sinatra/reloader'
 
 tasks = [
   ]
