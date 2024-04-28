@@ -50,3 +50,9 @@ mysql -u <上記設定ファイルのuser> -p
 # -o: コンテナのホストのIPアドレスを0.0.0.0に設定 →4567ポートのIPに対してアクセス可能
 docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 my-ruby:dockerfile ruby myapp.rb -o 0.0.0.0
 ```
+
+## mysql コンテナの起動
+
+```bash
+docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 mysql:8.0.29
+```
