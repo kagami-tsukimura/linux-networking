@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+    depends_on:
+      - sinatra
+
   sinatra:
     # ./sinatra配下のDockerfileで、コンテナをビルド
     # docker buildしなくても、docker-compose upだけでコンテナ起動できる！
