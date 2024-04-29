@@ -6,6 +6,7 @@ services:
     ports:
       - 8000:80
     volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/html:/usr/share/nginx/html
     depends_on:
       - sinatra
