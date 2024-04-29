@@ -2,6 +2,8 @@ version: '3'
 
 services:
   sinatra:
+    # ./sinatra配下のDockerfileで、コンテナをビルド
+    # docker buildしなくても、docker-compose upだけでコンテナ起動できる！
     build: ./sinatra
     volumes:
       - ./sinatra:/opt/myapp
