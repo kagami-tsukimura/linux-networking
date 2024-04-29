@@ -13,7 +13,7 @@ tasks = [
    end
    get '/api/hello' do
      {
-         message: 'Hello World!!!!'
+         message: 'Hello World!!!'
      }.to_json
    end
    get '/api/tasks' do
@@ -46,7 +46,7 @@ client.close
 
   def connect
     Mysql2::Client.new(
-      :host => 'localhost', 
+      :host => 'my-db', 
       :port => 3306, 
       :username => 'myuser', 
       :password => 'password', 
