@@ -67,7 +67,7 @@ docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 --net my-net
 
 ```bash
 cd introduction-to-docker
-docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 -v $PWD/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d --net my-net mysql:8.0.29
+docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 -v $PWD/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d -v $PWD/mysql/conf.d/charaset.cnf:/etc/mysql/conf.d/charaset.cnf --net my-net  mysql:8.0.29
 ```
 
 #### mysql コンテナの確認

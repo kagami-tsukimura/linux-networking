@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  sinatra:
+    image: my-ruby:dockerfile
+    volumes:
+      - ./sinatra:/opt/myapp
+    working_dir: /opt/myapp
+    ports:
+      - 4567:4567
+    command: ruby myapp.rb -o 0.0.0.0
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.29
+    platform: linux/x86_64
+    volumes:
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/conf.d/charaset.cnf:/etc/mysql/conf.d/charaset.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
