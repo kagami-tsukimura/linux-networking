@@ -92,3 +92,15 @@ select * from tasks;
 ```
 
 ## docker-compose による起動
+
+```bash
+cd introduction-to-docker
+docker-compose up -d
+```
+
+### Docker イメージを書き換えた場合
+
+```bash
+docker-compose build
+docker-compose up -d
+```
