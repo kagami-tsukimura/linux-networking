@@ -2,7 +2,7 @@ version: '3'
 
 services:
   sinatra:
-    image: my-ruby:dockerfile
+    build: ./sinatra
     volumes:
       - ./sinatra:/opt/myapp
     working_dir: /opt/myapp
