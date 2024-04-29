@@ -73,3 +73,12 @@ rootpassword
 ## mysql コンテナの起動時について
 
 起動時に`/docker-entrypoint-initdb`.内の`d.sh`, `.sql` , `.sql.gz`を読み込ませられる。
+
+## mysql テーブル確認
+
+```bash
+show databases;
+use mydb;
+show tables;
+select * from tasks;
+```
