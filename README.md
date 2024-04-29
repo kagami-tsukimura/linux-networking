@@ -40,6 +40,14 @@ mysql -u <上記設定ファイルのuser> -p
 
 ## Docker の起動
 
+### docker network の作成
+
+```bash
+docker network create my-net
+```
+
+### sinatra の起動
+
 ```bash
 # mountしたデータが削除されないようにする
 # -v: ホストのカレントディレクトリをコンテナの/opt/myappにマウント
@@ -55,14 +63,14 @@ cd ..
 docker run -v $PWD/sinatra:/opt/myapp -w /opt/myapp -d -p 4567:4567 my-ruby:dockerfile ruby myapp.rb -o 0.0.0.0
 ```
 
-## mysql コンテナの起動
+### mysql コンテナの起動
 
 ```bash
 cd introduction-to-docker
 docker run --name my-db -e MYSQL_ROOT_PASSWORD=rootpassword -d --platform linux/x86_64 -v $PWD/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d  mysql:8.0.29
 ```
 
-## mysql コンテナの確認
+#### mysql コンテナの確認
 
 ```bash
 docker exec -it my-db bash
@@ -70,11 +78,11 @@ mysql -u root -p
 rootpassword
 ```
 
-## mysql コンテナの起動時について
+#### mysql コンテナの起動時について
 
 起動時に`/docker-entrypoint-initdb`.内の`d.sh`, `.sql` , `.sql.gz`を読み込ませられる。
 
-## mysql テーブル確認
+#### mysql テーブル確認
 
 ```bash
 show databases;
