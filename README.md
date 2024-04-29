@@ -93,6 +93,11 @@ select * from tasks;
 
 ## docker-compose による起動
 
+- nginx, sinatra, mysql コンテナの起動
+  - nginx はポート 8000 でアクセス可能
+  - sinatra はポート 4567 でアクセス可能
+  - mysql はポート 3306 でアクセス可能
+
 ```bash
 cd introduction-to-docker
 docker-compose up -d
