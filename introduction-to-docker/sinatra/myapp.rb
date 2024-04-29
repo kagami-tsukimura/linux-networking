@@ -46,7 +46,7 @@ client.close
 
   def connect
     Mysql2::Client.new(
-      :host => 'my-db', 
+      :host => 'introduction-to-docker_mysql_1', 
       :port => 3306, 
       :username => 'myuser', 
       :password => 'password', 
