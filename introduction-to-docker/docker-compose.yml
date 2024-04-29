@@ -2,7 +2,9 @@ version: '3'
 
 services:
   sinatra:
-    image: my-ruby:dockerfile
+    # ./sinatra配下のDockerfileで、コンテナをビルド
+    # docker buildしなくても、docker-compose upだけでコンテナ起動できる！
+    build: ./sinatra
     volumes:
       - ./sinatra:/opt/myapp
     working_dir: /opt/myapp
