@@ -38,7 +38,7 @@ mysql -u <上記設定ファイルのuser> -p
 - MySQL の実体は、mysql の service
   - mysql コマンドでは、実体にアクセスするためのツール
 
-## Docker の起動
+## Dockerfile による起動
 
 ### docker network の作成
 
@@ -89,4 +89,18 @@ show databases;
 use mydb;
 show tables;
 select * from tasks;
+```
+
+## docker-compose による起動
+
+```bash
+cd introduction-to-docker
+docker-compose up -d
+```
+
+### Docker イメージを書き換えた場合
+
+```bash
+docker-compose build
+docker-compose up -d
 ```
